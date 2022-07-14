@@ -6,13 +6,24 @@ input = sys.stdin.readline
 def word_to_number(word):
     time = 0
     for letter in word:
-        for i in range(len(dial)):
-            if letter in dial[i]:
-                time += i + 3
-                break
+        if letter in 'ABC':
+            time += 3
+        elif letter in 'DEF':
+            time += 4
+        elif letter in 'GHI':
+            time += 5
+        elif letter in 'JKL':
+            time += 6
+        elif letter in 'MNO':
+            time += 7
+        elif letter in 'PQRS':
+            time += 8
+        elif letter in 'TUV':
+            time += 9
+        else:
+            time += 10
     return time
 
 
 word = input().rstrip()
-dial=['ABC','DEF','GHI','JKL','MNO','PQRS','TUV','WXYZ']
 print(word_to_number(word))
