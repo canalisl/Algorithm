@@ -18,13 +18,19 @@ def find_new_unit():
 
 
 def numbering_complex(x, y):
-    visited[y][x] = 1
+    # 단지 번호
+    print(f'ny는 {y}이고, nx는 {x}입니다.' )
+    number = 1
+    visited[y][x] = number
     for i in range(4):
         nx = x + dx[i]
         ny = y + dy[i]
         if 0 <= nx < N and 0 <= ny < N and not visited[ny][nx] and map[ny][nx] == 1:
             numbering_complex(nx, ny)
-
+    # print(f'더 이상 갈 곳이 없습니다. nx는 {nx}이고, ny는 {ny}입니다.' )
+    number += 1
+    find_new_unit()
+    
 
 N = int(input().rstrip())
 map = [list(map(int, input().rstrip())) for _ in range(N)]
