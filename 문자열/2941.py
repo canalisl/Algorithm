@@ -12,5 +12,6 @@ def croatian_count(word):
 
 
 word = input().rstrip()
+# 배열 원소 순서 중요 ex. 'z='이 'dz='보다 앞에 오면 오답
 croatian_alphabet = ['c=', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
 print(croatian_count(word))
