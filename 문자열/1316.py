@@ -6,7 +6,7 @@ input = sys.stdin.readline
 def group_word_check(word):
     global group_word_cnt
     for i in range(len(word)):
-        # 연속된 문자면 건너뛰기
+        # 연속된 문자면 건너뛰기 ex. aab 에서 첫 번째 a만 체크
         if i >= 1 and word[i] == word[i - 1]:
             continue
         cnt = word.count(word[i])
