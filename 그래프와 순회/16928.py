@@ -14,7 +14,7 @@ def snake_ladder_game(n):
         else:
             for i in range(6):
                 next = now + dice[i]
-                if 1 <= next <= 100:
+                if next <= 100:
                     if next in ladder:
                         next = ladder[next]
                     elif next in snake:
