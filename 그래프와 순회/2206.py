@@ -36,5 +36,6 @@ dy = [-1, 1, 0, 0]
 # 3차원 리스트로 벽 파괴 여부 파악  ex) visited[y][x][0]은 파괴 가능 visited[y][x][1]은 파괴 불가능
 visited = [[[0] * 2 for _ in range(M)] for _ in range(N)]
 visited[0][0][0] = 1
+visited[0][0][1] = 1
 print(breaking_wall(0, 0, 0))
 # pprint.pprint(visited)
