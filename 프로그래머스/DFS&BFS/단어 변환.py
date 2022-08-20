@@ -2,19 +2,27 @@ from collections import deque
 
 
 def solution(begin, target, words):
-    answer = 0
-    queue = deque(begin)
+    if target not in words:
+        return 0
+    queue = deque()  # 그냥 begin을 넣으면 문자열 분해돼서 들어감
+    queue.append((begin, 0))    # deque([('hit', 0)])
+    # queue = deque((begin, 0))   # deque(['hit', 0]) -> popleft하면 'hit'만 나옴
+    # queue = deque([(begin, 0)])   # 한 번에 할거면 이렇게
     while queue:
-        now = queue.popleft()
-        cnt = 0
+        now, cnt = queue.popleft()
         if now == target:
-            return answer
-        for next in words:
-            for i in range(len(next)):
-                if now[i] != next[i]:
-                    cnt += 1
-            if cnt == 1:
-                queue.append(next)
-                answer += 1
+            return cnt
+        cnt += 1
+        for i in range(len(words)):    
+            diff = 0
+            for j in range(len(now)):
+                if now[j] != words[i][j]:
+                    diff += 1
+            if diff == 1:
+                queue.append((words[i], cnt))
     return 0
 
+begin = "hit"
+target = "cog"
+words = ["hot", "dot", "dog", "lot", "log", "cog"]
+print(solution(begin, target, words))
