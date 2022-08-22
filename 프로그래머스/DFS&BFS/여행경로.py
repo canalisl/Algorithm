@@ -1,5 +1,6 @@
 def solution(tickets):
     answer = ["ICN"]
+    tickets.sort()
     travel_dfs(answer, tickets)
     return answer
                              
