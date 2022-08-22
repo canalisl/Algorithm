@@ -8,18 +8,21 @@ def solution(begin, target, words):
     queue.append((begin, 0))    # deque([('hit', 0)])
     # queue = deque((begin, 0))   # deque(['hit', 0]) -> popleft하면 'hit'만 나옴
     # queue = deque([(begin, 0)])   # 한 번에 할거면 이렇게
+    visited = [False] * len(words)
     while queue:
         now, cnt = queue.popleft()
         if now == target:
             return cnt
         cnt += 1
-        for i in range(len(words)):    
-            diff = 0
-            for j in range(len(now)):
-                if now[j] != words[i][j]:
-                    diff += 1
-            if diff == 1:
-                queue.append((words[i], cnt))
+        for i in range(len(words)):
+            if not visited[i]:
+                diff = 0
+                for j in range(len(now)):
+                    if now[j] != words[i][j]:
+                        diff += 1
+                if diff == 1:
+                    queue.append((words[i], cnt))
+                    visited[i] = True
     return 0
 
 begin = "hit"
