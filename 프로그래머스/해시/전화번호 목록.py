@@ -32,3 +32,18 @@ def solution(phone_book):
             answer = False
             return answer
     return answer
+
+# 해시 이용한 풀이
+def solution(phone_book):
+    answer = True
+    numbersDict = {}
+    for num in phone_book:
+        numbersDict[num] = 1
+    for number in phone_book:
+        temp = ""
+        for n in number:
+            temp += n
+            if temp != number and temp in numbersDict:
+                answer = False
+                return answer
+    return answer
