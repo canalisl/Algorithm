@@ -1,9 +1,6 @@
-from itertools import permutations
-
 def solution(numbers):
     answer = ''
-    numbers = list(map(str, numbers))
-    data = permutations(numbers, len(numbers))
-    result = [int(''.join(i)) for i in data]
-    answer = str(max(result))
+    numbers_str = list(map(str, numbers))
+    numbers_str.sort(key=lambda x: x*3, reverse=True)
+    answer = str(int(''.join(numbers_str)))
     return answer
