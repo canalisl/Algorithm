@@ -3,8 +3,15 @@ sys.stdin = open('2231.txt')
 input = sys.stdin.readline
 
 N = int(input())
-result = [num for num in range(1, N) if num + sum(map(int, list(str(num)))) == N]
-if len(result) == 0:
-    print(0)
+
+for num in range(1, N):
+    result = num
+    temp = num
+    while num != 0:
+        result += num % 10
+        num //= 10
+    if result == N:
+        print(temp)
+        break
 else:
-    print(min(result))
+    print(0)
